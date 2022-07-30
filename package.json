@@ -1,0 +1,34 @@
+{
+  "name": "expressjs-scaffold",
+  "version": "1.0.3",
+  "description": "Scaffold project structure  for getting started with express js API Development",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "startDev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Akhil-EM/express-js-API-skelton"
+  },
+  "keywords": [
+    "Express",
+    "Nodejs",
+    "API",
+    "Skelton",
+    "Scaffold"
+  ],
+  "author": "Akhil E M",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3"
+  }
+}

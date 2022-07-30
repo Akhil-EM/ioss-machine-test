@@ -1,0 +1,78 @@
+<%- include("common/header.ejs") %>
+    <div class="container-fluid mt-3">
+        <h2>Stock</h2>
+        
+        <form >
+          <div class="mb-3 mt-3">
+            <label for="ItemCode">Choose product</label>
+            <select  id="product" class="form-control">
+           </select>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="name">status:</label>
+            <select  id="status" class="form-control">
+               <option value="IN">IN</option>
+               <option value="OUT">OUT</option>
+            </select>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="email">Quantity:</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Quantity" required>
+          </div>
+         
+          <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        </form>
+      </div>
+
+
+
+
+
+<script>
+  $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        url: "/products",
+        success: function (response) {
+
+          let products = response.data.products;
+          let html = "";
+          products.forEach(product => {
+             html += "<option value='"+product.id+"'>"+product.name+"("+product.quantity+")</option>"
+          });
+
+          $('#product').append(html);
+        }
+      });    
+      
+      $("#submit").click(function (e) { 
+        e.preventDefault();
+
+        let productId  = $("#product").val();
+        let status  = $("#status").val();
+        let quantity  = $("#quantity").val();
+
+        $.ajax({
+          type: "POST",
+          url: "/stocks",
+          data:{
+            "productId":productId,
+            "status":status,
+            "quantity":quantity
+          },
+          success: function (response) {
+            alert("new stock entry added")
+            window.location.reload();
+          },
+          error:function (error){
+           alert(error.responseJSON.message);
+           window.location.reload();
+          }
+        });
+        
+      });
+  }); 
+  
+</script>
+</body>
+</html>

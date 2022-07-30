@@ -1,0 +1,60 @@
+<%- include("common/header.ejs") %>
+    <div class="container-fluid mt-3">
+        <h2>Add product</h2>
+        
+        <form >
+          <div class="mb-3 mt-3">
+            <label for="ItemCode">Item code:</label>
+            <input type="text" class="form-control" id="ItemCode" placeholder="ItemCode" required>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="name">name:</label>
+            <input type="text" class="form-control" id="name" placeholder="name" required>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="email">Quantity:</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Quantity" required>
+          </div>
+         
+          <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        </form>
+      </div>
+
+
+
+
+
+<script>
+     $(document).ready(function () {
+           $("#submit").click(function (e) { 
+              e.preventDefault();
+              let itemCode = $("#ItemCode").val();
+              let name = $("#name").val();
+              let quantity = $("#quantity").val();
+
+              if(!itemCode || !name ||!quantity) return alert("all fields are required");
+
+              $.ajax({
+                type: "POST",
+                url: "/products",
+                data:{
+                    "itemCode":itemCode,
+                    "name":name,
+                    "quantity":quantity
+                },
+                success: function (response) {
+                  alert("new product added");
+                  window.location.href = "/"
+                },
+                error: function (error) {
+                  console.log(error)
+                }
+
+              });
+           });
+     }); 
+
+    
+</script>
+</body>
+</html>

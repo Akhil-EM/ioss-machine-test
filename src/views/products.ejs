@@ -1,0 +1,102 @@
+<%- include("common/header.ejs") %>
+    <div class="container-fluid mt-3">
+        <h2>Products</h2>
+        <form class="d-flex">
+          <input class="form-control me-2" id="search" type="text" placeholder="enter product name " >
+          <button class="btn btn-primary" id="search-btn" type="button">Search</button>
+        </form>
+        <table class="table table-hover" id="product-table">
+          <thead>
+            <tr>
+              <th>no</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          
+        </table>
+      </div>
+
+
+
+
+
+<script>
+     $(document).ready(function () {
+        $.ajax({
+            type: "get",
+            url: "/products",
+            success: function (response) {
+                let products = response.data.products;
+                
+                var html = "";
+                var id = 1
+                products.forEach(product => {
+
+                    html += formatItem(product,id); 
+                    id +=1;
+                });
+
+                $("#product-table").append(html);
+            }
+        });
+     });
+
+     function formatItem(item,id) {
+            return '<tr class="table-body"><td>'+id+'</td><td>'+item.item_code + '</td><td>' + item.name + '</td><td>' + item.quantity + '</td><td><button onclick="deleteProduct('+item.id+')">Delete</button></td></tr>';
+     }
+
+
+     function deleteProduct(id) {
+        console.log(id)
+
+        $.ajax({
+            type: "DELETE",
+            url: "/products/"+id,
+            success: function (response) {
+                alert("product deleted");
+                window.location.reload()
+            }
+        });
+     }
+
+
+     function searchProduct(){
+        let product = $("#search").val();
+
+        if(product){
+          console.log(product)
+        }
+     }
+
+     $("#search-btn").click(function (e) { 
+      e.preventDefault();
+      let product = $("#search").val();
+
+        if(product){
+          
+          $.ajax({
+            type: "GET",
+            url: "/products/"+product,
+            success: function (response) {
+              let products = response.data.products;
+              $(".table-body").remove();
+
+              var html = "";
+                var id = 1
+                products.forEach(product => {
+
+                    html += formatItem(product,id); 
+                    id +=1;
+                });
+                $("#product-table").append(html);
+
+            }
+          });
+        }
+     });
+</script>
+</body>
+</html>

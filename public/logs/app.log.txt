@@ -1,0 +1,47 @@
+=>Sat Jul 30 2022 11:58:21 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 26 
+  error= notNull Violation: products.item_code cannot be null,
+notNull Violation: products.name cannot be null,
+notNull Violation: products.quantity cannot be null
+
+=>Sat Jul 30 2022 12:02:37 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 88 
+  error= productName is not defined
+
+=>Sat Jul 30 2022 12:02:54 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 88 
+  error= productName is not defined
+
+=>Sat Jul 30 2022 12:02:55 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 88 
+  error= productName is not defined
+
+=>Sat Jul 30 2022 12:03:10 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 88 
+  error= You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%k%' at line 1
+
+=>Sat Jul 30 2022 12:03:49 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 88 
+  error= You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%k%' at line 1
+
+=>Sat Jul 30 2022 12:41:08 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 47 
+  error= WHERE parameter "item_code" has invalid "undefined" value
+
+=>Sat Jul 30 2022 12:41:39 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 47 
+  error= WHERE parameter "item_code" has invalid "undefined" value
+
+=>Sat Jul 30 2022 12:42:15 GMT+0530 (India Standard Time) 
+  file= C:\Users\INTERVAL-BACKEND\Desktop\hoby\interview ioss\API\src\controllers\product.controller.js  
+  line= 47 
+  error= WHERE parameter "item_code" has invalid "undefined" value
+
